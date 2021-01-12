@@ -7,8 +7,8 @@
 :root {
     --primary-color: #a2ad59;
     --secondary-color: #9b489b;
-    --border-color: #e8e9ed;
-    --bg-color: #333333;
+    --border-color: #dddddd;
+    --bg-color: #2b2b2b;
 }
 
 body {
@@ -26,6 +26,72 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    color: var(--primary-color);
+}
+
+.counter h4 {
+    color: var(--border-color);
+    font-size: 20px;
+    margin: 5px;
+    text-transform: uppercase;
+}
+
+.nums {
+    color: var(--secondary-color);
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+    height: 60px;
+}
+
+.nums span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
+}
+
+.nums span.in {
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: goIn 0.5s ease-in-out;
+}
+
+.nums span.out {
+    animation: goOut 0.5s ease-in-out;
+}
+
+@keyframes goIn {
+    0% {
+        transform: translate(-50%, -50%) rotate(120deg);
+    }
+
+    30% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes goOut {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-120deg);
+    }
 }
 
 .counter.hide {
@@ -62,10 +128,15 @@ body {
     }
 
     30% {
-        transform: translate(-50%, -50%) scale(1.4);
+        transform: translate(-50%, -50%) scale(2);
     }
 
     100% {
         transform: translate(-50%, -50%) scale(1);
     }
+}
+
+.final h1 {
+    font-size: 30px;
+    color: var(--primary-color);
 }
